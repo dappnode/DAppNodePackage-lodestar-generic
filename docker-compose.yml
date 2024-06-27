@@ -1,0 +1,40 @@
+version: "3.5"
+services:
+  beacon-chain:
+    build:
+      context: beacon-chain
+      args:
+        UPSTREAM_VERSION: v1.19.0
+    volumes:
+      - beacon-data:/var/lib/data
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      DEBUG_LEVEL: info
+      BEACON_API_PORT: 3500
+      CHECKPOINT_SYNC_URL: ""
+      EXTRA_OPTS: ""
+      FEE_RECIPIENT_ADDRESS: ""
+      MEMORY_LIMIT: 8192
+  validator:
+    build:
+      context: validator
+      args:
+        UPSTREAM_VERSION: v1.19.0
+    volumes:
+      - validator-data:/var/lib/data
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+    environment:
+      DEBUG_LEVEL: info
+      HTTP_WEB3SIGNER: http://web3signer.web3signer.dappnode:9000
+      BEACON_NODE_ADDR: http://beacon-chain.lodestar.dappnode:3500
+      GRAFFITI: validating_from_DAppNode
+      EXTRA_OPTS: ""
+      FEE_RECIPIENT_ADDRESS: ""
+      DOPPELGANGER_PROTECTION: "true"
+volumes:
+  beacon-data: {}
+  validator-data: {}

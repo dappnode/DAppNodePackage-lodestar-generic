@@ -1,0 +1,15 @@
+version: "3.5"
+services:
+  beacon-chain:
+    image: beacon-chain.lodestar.dnp.dappnode.eth:0.1.0
+    build:
+      args:
+        NETWORK: mainnet
+    ports:
+      - 9112:9112/tcp
+      - 9112:9112/udp
+  validator:
+    image: validator.lodestar.dnp.dappnode.eth:0.1.0
+    build:
+      args:
+        NETWORK: mainnet

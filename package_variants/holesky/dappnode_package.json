@@ -1,0 +1,20 @@
+{
+  "name": "lodestar-holesky.dnp.dappnode.eth",
+  "version": "0.1.5",
+  "links": {
+    "ui": "http://brain.web3signer-holesky.dappnode",
+    "homepage": "https://lodestar.chainsafe.io/",
+    "docs": "https://chainsafe.github.io/lodestar/",
+    "readme": "https://github.com/ChainSafe/lodestar/blob/stable/README.md"
+  },
+  "globalEnvs": [
+    {
+      "envs": ["EXECUTION_CLIENT_HOLESKY", "MEVBOOST_HOLESKY"],
+      "services": ["beacon-chain"]
+    },
+    {
+      "envs": ["MEVBOOST_HOLESKY"],
+      "services": ["validator"]
+    }
+  ]
+}
