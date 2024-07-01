@@ -5,6 +5,7 @@ services:
     build:
       args:
         NETWORK: holesky
+        P2P_PORT: 9612
     ports:
       - 9612:9612/tcp
       - 9612:9612/udp

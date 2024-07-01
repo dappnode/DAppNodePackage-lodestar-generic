@@ -1,27 +1,7 @@
 #!/bin/sh
 
-SCRIPTS_DIR=$(dirname "$0")
-CONSENSUS_TOOLS_SCRIPT="${SCRIPTS_DIR}/consensus-tools.sh"
-
-if [ ! -f "$CONSENSUS_TOOLS_SCRIPT" ]; then
-    echo "consensus-tools.sh not found"
-    exit 1
-fi
-
-# shellcheck disable=SC1090 # Shellcheck can't find the file dynamically
-. "${CONSENSUS_TOOLS_SCRIPT}"
-
-handle_network() {
-    case "$NETWORK" in
-    "gnosis") set_network_specific_config 19012 ;;
-    "holesky") set_network_specific_config 9612 ;;
-    "mainnet") set_network_specific_config 9112 ;;
-    *)
-        echo "Unsupported network: $NETWORK"
-        exit 1
-        ;;
-    esac
-}
+# shellcheck disable=SC1091 # Path is relative to the Dockerfile
+. /etc/profile
 
 run_beacon() {
     echo "[INFO - entrypoint] Running beacon node"
@@ -47,7 +27,8 @@ run_beacon() {
         --logFileDailyRotate 5 ${EXTRA_OPTS:-}
 }
 
-handle_network
-set_checkpointsync_url "--checkpointSyncUrl"
-set_mevboost "--builder --builder.url" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
+verify_network_support "gnosis holesky mainnet" # These are the supported networks
+set_network_specific_config
+set_checkpointsync_url "--checkpointSyncUrl" "${CHECKPOINT_SYNC_URL}"
+set_mevboost_flag "--builder --builder.url" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
 run_beacon

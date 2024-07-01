@@ -7,7 +7,9 @@ ARG STAKER_SCRIPTS_VERSION
 
 COPY api-token.txt /var/lib/data/validator-db/api-token.txt
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-ADD https://raw.githubusercontent.com/dappnode/staker-package-scripts/${STAKER_SCRIPTS_VERSION}/consensus-tools.sh /usr/local/bin/consensus-tools.sh
+ADD https://raw.githubusercontent.com/dappnode/staker-package-scripts/${STAKER_SCRIPTS_VERSION}/consensus-tools.sh /etc/profile.d/consensus-tools.sh
+
+RUN chmod +x /usr/local/bin/entrypoint.sh /etc/profile.d/consensus-tools.sh
 
 ENV DATA_DIR=/var/lib/data \
     LOG_FILE=/var/lib/data/validator.log \

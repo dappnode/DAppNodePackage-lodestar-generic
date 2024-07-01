@@ -1,15 +1,7 @@
 #!/bin/sh
 
-SCRIPTS_DIR=$(dirname "$0")
-CONSENSUS_TOOLS_SCRIPT="${SCRIPTS_DIR}/consensus-tools.sh"
-
-if [ ! -f "$CONSENSUS_TOOLS_SCRIPT" ]; then
-    echo "consensus-tools.sh not found"
-    exit 1
-fi
-
-# shellcheck disable=SC1090 # Shellcheck can't find the file dynamically
-. "${CONSENSUS_TOOLS_SCRIPT}"
+# shellcheck disable=SC1091
+. /etc/profile
 
 run_validator() {
     echo "[INFO - entrypoint] Running validator node"
@@ -38,5 +30,5 @@ run_validator() {
 }
 
 format_graffiti
-set_mevboost "--builder" "true" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
+set_mevboost_flag "--builder" "true" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
 run_validator
