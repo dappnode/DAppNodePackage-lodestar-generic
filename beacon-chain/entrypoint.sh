@@ -1,5 +1,8 @@
 #!/bin/sh
 
+SUPPORTED_NETWORKS="gnosis holesky mainnet"
+MEVBOOST_SUPPORTED_NETWORKS="mainnet holesky"
+
 # shellcheck disable=SC1091 # Path is relative to the Dockerfile
 . /etc/profile
 
@@ -27,8 +30,7 @@ run_beacon() {
         --logFileDailyRotate 5 ${EXTRA_OPTS:-}
 }
 
-verify_network_support "gnosis holesky mainnet" # These are the supported networks
-set_network_specific_config
+set_consensus_config_by_network "${SUPPORTED_NETWORKS}"
 set_checkpointsync_url "--checkpointSyncUrl" "${CHECKPOINT_SYNC_URL}"
-set_mevboost_flag "--builder --builder.url" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
+set_mevboost_flag "${MEVBOOST_SUPPORTED_NETWORKS}" "--builder --builder.url" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
 run_beacon

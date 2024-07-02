@@ -1,5 +1,7 @@
 #!/bin/sh
 
+MEVBOOST_SUPPORTED_NETWORKS="mainnet holesky"
+
 # shellcheck disable=SC1091
 . /etc/profile
 
@@ -29,7 +31,6 @@ run_validator() {
         --logFile /var/lib/data/validator.log ${EXTRA_OPTS}
 }
 
-verify_network_support "gnosis holesky mainnet" # These are the supported networks
 format_graffiti
-set_mevboost_flag "--builder" "true" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
+set_mevboost_flag "${MEVBOOST_SUPPORTED_NETWORKS}" "--builder" "true" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
 run_validator
