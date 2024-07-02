@@ -15,6 +15,6 @@ ENV DATA_DIR=/var/lib/data \
 
 ADD ${STAKER_SCRIPTS_URL}/consensus_tools.sh /etc/profile.d/
 
-RUN chmod +x /usr/local/bin/entrypoint.sh /etc/profile.d/consensus_tools.sh
+RUN chmod +rx /usr/local/bin/entrypoint.sh /etc/profile.d/consensus_tools.sh
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]
