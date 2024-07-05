@@ -1,10 +1,15 @@
 #!/bin/sh
 
+SUPPORTED_NETWORKS="gnosis holesky mainnet"
+MEVBOOST_FLAG="--builder"
+SKIP_MEVBOOST_URL="true"
+CLIENT="lodestar"
+
 # shellcheck disable=SC1091
 . /etc/profile
 
 run_validator() {
-    echo "[INFO - entrypoint] Running validator node"
+    echo "[INFO - entrypoint] Running validator service"
 
     # shellcheck disable=SC2086
     exec node /usr/app/node_modules/.bin/lodestar \
@@ -20,9 +25,9 @@ run_validator() {
         --metrics \
         --metrics.port 5064 \
         --metrics.address 0.0.0.0 \
-        --externalSigner.url="${HTTP_WEB3SIGNER}" \
+        --externalSigner.url="${WEB3SIGNER_API_URL}" \
         --doppelgangerProtection="${DOPPELGANGER_PROTECTION}" \
-        --beaconNodes="${BEACON_NODE_ADDR}" \
+        --beaconNodes="${BEACON_API_URL}" \
         --logLevel="${DEBUG_LEVEL}" \
         --logFileLevel=debug \
         --logFileDailyRotate 5 \
@@ -30,5 +35,6 @@ run_validator() {
 }
 
 format_graffiti
-set_mevboost_flag "--builder" "true" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
+set_validator_config_by_network "${NETWORK}" "${SUPPORTED_NETWORKS}" "${CLIENT}"
+set_mevboost_flag "${MEVBOOST_FLAG}" "${SKIP_MEVBOOST_URL}" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
 run_validator

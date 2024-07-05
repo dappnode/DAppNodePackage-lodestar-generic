@@ -13,13 +13,12 @@ RUN apk update && apk add --no-cache curl
 
 ENV JWT_SECRET_FILE=/jwtsecret \
     DATA_DIR=/var/lib/data \
+    BEACON_API_PORT=3500 \
     NETWORK=${NETWORK} \
     STAKER_SCRIPTS_URL=https://github.com/dappnode/staker-package-scripts/releases/download/${STAKER_SCRIPTS_VERSION}
 
 ADD ${STAKER_SCRIPTS_URL}/consensus_tools.sh /etc/profile.d/
 
 RUN chmod +rx /usr/local/bin/entrypoint.sh /etc/profile.d/consensus_tools.sh
-
-EXPOSE $BEACON_API_PORT
 
 ENTRYPOINT [ "/usr/local/bin/entrypoint.sh" ]

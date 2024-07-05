@@ -13,7 +13,6 @@ services:
       - seccomp:unconfined
     environment:
       DEBUG_LEVEL: info
-      BEACON_API_PORT: 3500
       CHECKPOINT_SYNC_URL: ""
       EXTRA_OPTS: ""
       FEE_RECIPIENT_ADDRESS: ""
@@ -31,8 +30,6 @@ services:
       - seccomp:unconfined
     environment:
       DEBUG_LEVEL: info
-      HTTP_WEB3SIGNER: http://web3signer.web3signer.dappnode:9000
-      BEACON_NODE_ADDR: http://beacon-chain.lodestar.dappnode:3500
       GRAFFITI: validating_from_DAppNode
       EXTRA_OPTS: ""
       FEE_RECIPIENT_ADDRESS: ""

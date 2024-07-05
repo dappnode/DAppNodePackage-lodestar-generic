@@ -1,6 +1,8 @@
 #!/bin/sh
 
 SUPPORTED_NETWORKS="gnosis holesky mainnet"
+CHECKPOINT_SYNC_FLAG="--checkpointSync"
+MEVBOOST_FLAGS="--builder --builder.url"
 
 # shellcheck disable=SC1091 # Path is relative to the Dockerfile
 . /etc/profile
@@ -14,7 +16,7 @@ run_beacon() {
         --network=mainnet \
         --suggestedFeeRecipient="${FEE_RECIPIENT_ADDRESS}" \
         --jwt-secret="${JWT_SECRET_FILE}" \
-        --execution.urls="${HTTP_ENGINE}" \
+        --execution.urls="${ENGINE_API_URL}" \
         --dataDir="${DATA_DIR}" \
         --rest \
         --rest.address 0.0.0.0 \
@@ -29,7 +31,7 @@ run_beacon() {
         --logFileDailyRotate 5 ${EXTRA_OPTS:-}
 }
 
-set_consensus_config_by_network "${SUPPORTED_NETWORKS}"
-set_checkpointsync_url "--checkpointSyncUrl" "${CHECKPOINT_SYNC_URL}"
-set_mevboost_flag "--builder --builder.url" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
+set_beacon_config_by_network "${NETWORK}" "${SUPPORTED_NETWORKS}"
+set_checkpointsync_url "${CHECKPOINT_SYNC_FLAG}" "${CHECKPOINT_SYNC_URL}"
+set_mevboost_flag "${MEVBOOST_FLAGS}" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
 run_beacon
