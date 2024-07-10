@@ -12,10 +12,10 @@ run_validator() {
     echo "[INFO - entrypoint] Running validator service"
 
     # shellcheck disable=SC2086
-    exec node /usr/app/node_modules/.bin/lodestar \
+    exec ${LODESTAR_BIN} \
         validator \
         --network="${NETWORK}" \
-        --suggestedFeeRecipient="${FEE_RECIPIENT_ADDRESS}" \
+        --suggestedFeeRecipient="${FEE_RECIPIENT}" \
         --graffiti="${GRAFFITI}" \
         --dataDir="${DATA_DIR}" \
         --keymanager true \
@@ -28,10 +28,10 @@ run_validator() {
         --externalSigner.url="${WEB3SIGNER_API_URL}" \
         --doppelgangerProtection="${DOPPELGANGER_PROTECTION}" \
         --beaconNodes="${BEACON_API_URL}" \
-        --logLevel="${DEBUG_LEVEL}" \
+        --logLevel="${LOG_LEVEL}" \
         --logFileLevel=debug \
         --logFileDailyRotate 5 \
-        --logFile /var/lib/data/validator.log ${EXTRA_OPTS}
+        --logFile "${DATA_DIR}/validator.log" ${EXTRA_OPTS}
 }
 
 format_graffiti

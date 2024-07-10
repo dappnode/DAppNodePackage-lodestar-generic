@@ -1,7 +1,6 @@
 version: "3.5"
 services:
   beacon-chain:
-    image: beacon-chain.lodestar-holesky.dnp.dappnode.eth:0.1.5
     build:
       args:
         NETWORK: holesky
@@ -10,7 +9,6 @@ services:
       - 9612:9612/tcp
       - 9612:9612/udp
   validator:
-    image: validator.lodestar-holesky.dnp.dappnode.eth:0.1.5
     build:
       args:
         NETWORK: holesky
