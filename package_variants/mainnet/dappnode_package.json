@@ -1,6 +1,6 @@
 {
   "name": "lodestar.dnp.dappnode.eth",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "links": {
     "ui": "http://brain.web3signer.dappnode",
     "homepage": "https://lodestar.chainsafe.io/",
