@@ -15,7 +15,7 @@ run_beacon() {
         beacon \
         --network="${NETWORK}" \
         --suggestedFeeRecipient="${FEE_RECIPIENT}" \
-        --jwt-secret="${JWT_SECRET_FILE}" \
+        --jwt-secret="${JWT_FILE_PATH}" \
         --execution.urls="${ENGINE_API_URL}" \
         --dataDir="${DATA_DIR}" \
         --rest \
