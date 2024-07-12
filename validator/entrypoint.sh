@@ -12,7 +12,7 @@ run_validator() {
     echo "[INFO - entrypoint] Running validator service"
 
     # shellcheck disable=SC2086
-    exec ${LODESTAR_BIN} \
+    exec ${CLIENT_BIN} \
         validator \
         --network="${NETWORK}" \
         --suggestedFeeRecipient="${FEE_RECIPIENT}" \

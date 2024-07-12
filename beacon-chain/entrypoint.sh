@@ -11,7 +11,7 @@ run_beacon() {
     echo "[INFO - entrypoint] Running beacon node"
 
     # shellcheck disable=SC2086 # (EXTRA_OPTS may be empty)
-    exec ${LODESTAR_BIN} \
+    exec ${CLIENT_BIN} \
         beacon \
         --network="${NETWORK}" \
         --suggestedFeeRecipient="${FEE_RECIPIENT}" \

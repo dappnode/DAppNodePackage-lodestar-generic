@@ -8,7 +8,7 @@ ARG DATA_DIR
 
 ENV JWT_FILE_PATH=/jwtsecret \
     BEACON_API_PORT=3500 \
-    LODESTAR_BIN=/usr/app/lodestar \
+    CLIENT_BIN=/usr/app/lodestar \
     DATA_DIR=${DATA_DIR} \
     STAKER_SCRIPTS_URL=https://github.com/dappnode/staker-package-scripts/releases/download/${STAKER_SCRIPTS_VERSION}
 

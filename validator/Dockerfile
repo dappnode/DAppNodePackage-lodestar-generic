@@ -7,7 +7,7 @@ ARG STAKER_SCRIPTS_VERSION
 ARG DATA_DIR
 
 ENV LOG_FILE=/var/lib/data/validator.log \
-    LODESTAR_BIN=/usr/app/lodestar \
+    CLIENT_BIN=/usr/app/lodestar \
     DATA_DIR=${DATA_DIR} \
     API_TOKEN_FILE=/var/lib/data/validator-db/api-token.txt \
     STAKER_SCRIPTS_URL=https://github.com/dappnode/staker-package-scripts/releases/download/${STAKER_SCRIPTS_VERSION}
