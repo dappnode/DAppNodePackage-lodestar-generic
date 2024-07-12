@@ -16,7 +16,7 @@ jobs:
     if: github.event_name != 'push'
     steps:
       - uses: actions/checkout@v4
-      - run: docker-compose build
+      - run: npx @dappnode/dappnodesdk build --skip_save --variant=mainnet
 
   release:
     name: Release
