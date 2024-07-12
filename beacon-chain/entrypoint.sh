@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SUPPORTED_NETWORKS="gnosis holesky mainnet"
-CHECKPOINT_SYNC_FLAG="--checkpointSync"
+CHECKPOINT_SYNC_FLAG="--checkpointSyncUrl"
 MEVBOOST_FLAGS="--builder --builder.url"
 
 # shellcheck disable=SC1091 # Path is relative to the Dockerfile
