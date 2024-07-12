@@ -28,6 +28,7 @@ run_validator() {
         --externalSigner.url="${WEB3SIGNER_API_URL}" \
         --doppelgangerProtection="${DOPPELGANGER_PROTECTION}" \
         --beaconNodes="${BEACON_API_URL}" \
+        --http.requestWireFormat=ssz \
         --logLevel="${LOG_LEVEL}" \
         --logFileLevel=debug \
         --logFileDailyRotate 5 \
