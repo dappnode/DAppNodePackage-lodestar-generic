@@ -32,6 +32,6 @@ run_beacon() {
 }
 
 set_beacon_config_by_network "${NETWORK}" "${SUPPORTED_NETWORKS}"
-set_checkpointsync_url "${CHECKPOINT_SYNC_FLAG}" "${CHECKPOINT_SYNC_URL}"
+set_checkpoint_sync_url "${CHECKPOINT_SYNC_FLAG}" "${CHECKPOINT_SYNC_URL}"
 set_mevboost_flag "${MEVBOOST_FLAGS}" # MEV-Boost: https://chainsafe.github.io/lodestar/usage/mev-integration/
 run_beacon
