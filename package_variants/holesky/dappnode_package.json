@@ -1,6 +1,6 @@
 {
   "name": "lodestar-holesky.dnp.dappnode.eth",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "links": {
     "ui": "http://brain.web3signer-holesky.dappnode",
     "homepage": "https://lodestar.chainsafe.io/",
