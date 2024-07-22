@@ -5,9 +5,11 @@ FROM chainsafe/lodestar:${UPSTREAM_VERSION}
 ARG NETWORK
 ARG STAKER_SCRIPTS_VERSION
 ARG DATA_DIR
+ARG P2P_PORT
 
 ENV JWT_FILE_PATH=/jwtsecret \
     BEACON_API_PORT=3500 \
+    P2P_PORT=${P2P_PORT} \
     CLIENT_BIN=/usr/app/lodestar \
     DATA_DIR=${DATA_DIR} \
     STAKER_SCRIPTS_URL=https://github.com/dappnode/staker-package-scripts/releases/download/${STAKER_SCRIPTS_VERSION}
