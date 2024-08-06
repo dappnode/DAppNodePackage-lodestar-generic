@@ -16,13 +16,11 @@ MEVBOOST_FLAG=$(get_mevboost_flag "${MEVBOOST_FLAG_KEY}" "${SKIP_MEVBOOST_URL}")
 
 echo "[INFO - entrypoint] Running validator service"
 
-# shellcheck disable=SC2086
-exec ${CLIENT_BIN} \
-    validator \
-    --network="${NETWORK}" \
-    --suggestedFeeRecipient="${VALID_FEE_RECIPIENT}" \
-    --graffiti="${VALID_GRAFFITI}" \
-    --dataDir="${DATA_DIR}" \
+FLAGS="validator \
+    --network=${NETWORK} \
+    --suggestedFeeRecipient=${VALID_FEE_RECIPIENT} \
+    --graffiti=${VALID_GRAFFITI} \
+    --dataDir=${DATA_DIR} \
     --keymanager true \
     --keymanager.authEnabled true \
     --keymanager.port 3500 \
@@ -30,11 +28,14 @@ exec ${CLIENT_BIN} \
     --metrics \
     --metrics.port 5064 \
     --metrics.address 0.0.0.0 \
-    --externalSigner.url="${SIGNER_API_URL}" \
-    --doppelgangerProtection="${DOPPELGANGER_PROTECTION}" \
-    --beaconNodes="${BEACON_API_URL}" \
+    --externalSigner.url=${SIGNER_API_URL} \
+    --doppelgangerProtection=${DOPPELGANGER_PROTECTION} \
+    --beaconNodes=${BEACON_API_URL} \
     --http.requestWireFormat=ssz \
-    --logLevel="${LOG_LEVEL}" \
+    --logLevel=${LOG_LEVEL} \
     --logFileLevel=debug \
     --logFileDailyRotate 5 \
-    --logFile "${DATA_DIR}/validator.log" ${MEVBOOST_FLAG} ${EXTRA_OPTS}
+    --logFile ${DATA_DIR}/validator.log $MEVBOOST_FLAG $EXTRA_OPTS"
+
+# shellcheck disable=SC2086
+exec $CLIENT_BIN $FLAGS
