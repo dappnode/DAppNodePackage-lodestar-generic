@@ -6,13 +6,12 @@ ARG NETWORK
 ARG STAKER_SCRIPTS_VERSION
 ARG DATA_DIR
 
-ENV JWT_FILE_PATH=/jwtsecret \
+ENV JWT_FILE_PATH=/jwtsecret.hex \
     BEACON_API_PORT=3500 \
     CLIENT_BIN=/usr/app/lodestar \
     DATA_DIR=${DATA_DIR} \
     STAKER_SCRIPTS_URL=https://github.com/dappnode/staker-package-scripts/releases/download/${STAKER_SCRIPTS_VERSION}
 
-COPY jwtsecret.hex ${JWT_FILE_PATH}
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 ADD ${STAKER_SCRIPTS_URL}/consensus_tools.sh /etc/profile.d/
