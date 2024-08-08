@@ -9,12 +9,8 @@
   },
   "globalEnvs": [
     {
-      "envs": ["EXECUTION_CLIENT_MAINNET", "MEVBOOST_MAINNET"],
-      "services": ["beacon-chain"]
-    },
-    {
       "envs": ["MEVBOOST_MAINNET"],
-      "services": ["validator"]
+      "services": ["validator", "beacon-chain"]
     }
   ]
 }
