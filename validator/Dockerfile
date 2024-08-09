@@ -17,7 +17,7 @@ COPY entrypoint.sh /usr/local/bin/entrypoint.sh
 
 ADD ${STAKER_SCRIPTS_URL}/consensus_tools.sh /etc/profile.d/
 
-RUN apk update && apk add --no-cache curl && \
+RUN apt-get update && apt-get install -y curl && apt-get clean && rm -rf /var/lib/apt/lists/* && \
     chmod +rx /usr/local/bin/entrypoint.sh /etc/profile.d/consensus_tools.sh
 
 # This env changes the variant
