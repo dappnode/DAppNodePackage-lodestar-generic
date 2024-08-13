@@ -12,5 +12,12 @@
       "envs": ["MEVBOOST_HOLESKY"],
       "services": ["validator", "beacon-chain"]
     }
-  ]
+  ],
+  "optionalDependencies": {
+    "holesky-reth.dnp.dappnode.eth": ">=0.1.0",
+    "holesky-geth.dnp.dappnode.eth": ">=1.0.1",
+    "holesky-nethermind.dnp.dappnode.eth": ">=0.1.9",
+    "holesky-besu.dnp.dappnode.eth": ">=0.1.1",
+    "holesky-erigon.dnp.dappnode.eth": ">=0.1.2"
+  }
 }
