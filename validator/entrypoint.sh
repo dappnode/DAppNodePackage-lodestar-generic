@@ -32,6 +32,7 @@ FLAGS="validator \
     --doppelgangerProtection=${DOPPELGANGER_PROTECTION} \
     --beaconNodes=${BEACON_API_URL} \
     --http.requestWireFormat=ssz \
+    --blindedLocal true \
     --logLevel=${LOG_LEVEL} \
     --logFileLevel=debug \
     --logFileDailyRotate 5 \
