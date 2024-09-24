@@ -14,8 +14,6 @@ MEVBOOST_FLAG=$(get_mevboost_flag "${NETWORK}" "${MEVBOOST_FLAG_KEYS}")
 JWT_SECRET=$(get_jwt_secret_by_network "${NETWORK}")
 echo "${JWT_SECRET}" >"${JWT_FILE_PATH}"
 
-echo "[INFO - entrypoint] Running beacon node"
-
 FLAGS="beacon \
     --network=${NETWORK} \
     --suggestedFeeRecipient=${VALID_FEE_RECIPIENT} \
@@ -33,6 +31,8 @@ FLAGS="beacon \
     --logLevel=${LOG_LEVEL} \
     --logFileLevel=debug \
     --logFileDailyRotate=5 $CHECKPOINT_SYNC_FLAG $MEVBOOST_FLAG $EXTRA_OPTS"
+
+echo "[INFO - entrypoint] Running beacon with flags: ${FLAGS}"
 
 # shellcheck disable=SC2086 # (EXTRA_OPTS may be empty)
 exec ${CLIENT_BIN} $FLAGS

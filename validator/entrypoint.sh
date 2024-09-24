@@ -14,8 +14,6 @@ SIGNER_API_URL=$(get_signer_api_url "${NETWORK}" "${SUPPORTED_NETWORKS}")
 BEACON_API_URL=$(get_beacon_api_url "${NETWORK}" "${SUPPORTED_NETWORKS}" "${CLIENT}")
 MEVBOOST_FLAG=$(get_mevboost_flag "${MEVBOOST_FLAG_KEY}" "${SKIP_MEVBOOST_URL}")
 
-echo "[INFO - entrypoint] Running validator service"
-
 FLAGS="validator \
     --network=${NETWORK} \
     --suggestedFeeRecipient=${VALID_FEE_RECIPIENT} \
@@ -37,6 +35,8 @@ FLAGS="validator \
     --logFileLevel=debug \
     --logFileDailyRotate 5 \
     --logFile ${DATA_DIR}/validator.log $MEVBOOST_FLAG $EXTRA_OPTS"
+
+echo "[INFO - entrypoint] Running validator with flags: ${FLAGS}"
 
 # shellcheck disable=SC2086
 exec $CLIENT_BIN $FLAGS
