@@ -23,7 +23,7 @@ fields:
   - id: feeRecipientAddress
     target:
       type: environment
-      name: FEE_RECIPIENT
+      name: FEE_RECIPIENT_ADDRESS
       service: [validator, beacon-chain]
     title: Fee Recipient Address
     description: >-

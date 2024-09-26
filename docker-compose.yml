@@ -15,7 +15,7 @@ services:
     environment:
       LOG_LEVEL: info
       CHECKPOINT_SYNC_URL: ""
-      FEE_RECIPIENT: ""
+      FEE_RECIPIENT_ADDRESS: ""
       EXTRA_OPTS: ""
   validator:
     build:
@@ -34,7 +34,7 @@ services:
       GRAFFITI: validating_from_DAppNode
       DOPPELGANGER_PROTECTION: "true"
       EXTRA_OPTS: ""
-      FEE_RECIPIENT: ""
+      FEE_RECIPIENT_ADDRESS: ""
 volumes:
   beacon-data: {}
   validator-data: {}
