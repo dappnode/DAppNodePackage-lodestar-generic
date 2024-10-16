@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  beacon-chain:
+    build:
+      args:
+        NETWORK: ephemery
+        P2P_PORT: 4000
+    ports:
+      - 4000:4000/tcp
+      - 4000:4000/udp
+  validator:
+    build:
+      args:
+        NETWORK: ephemery
