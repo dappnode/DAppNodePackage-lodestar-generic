@@ -28,7 +28,7 @@ FLAGS="validator \
     --metrics.address 0.0.0.0 \
     --externalSigner.url=${SIGNER_API_URL} \
     --doppelgangerProtection=${DOPPELGANGER_PROTECTION} \
-    --beaconNodes=${BEACON_API_URL} \
+    --beaconNodes=${BEACON_API_URL}$( [ -n "${BACKUP_BEACON_NODES}" ] && echo ",${BACKUP_BEACON_NODES}" ) \
     --http.requestWireFormat=ssz \
     --blindedLocal true \
     --logLevel=${LOG_LEVEL} \
