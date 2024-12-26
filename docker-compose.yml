@@ -35,6 +35,7 @@ services:
       DOPPELGANGER_PROTECTION: "true"
       EXTRA_OPTS: ""
       FEE_RECIPIENT_ADDRESS: ""
+      BACKUP_BEACON_NODES: ""
 volumes:
   beacon-data: {}
   validator-data: {}
