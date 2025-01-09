@@ -29,8 +29,7 @@ FLAGS="validator \
     --externalSigner.url=${SIGNER_API_URL} \
     --doppelgangerProtection=${DOPPELGANGER_PROTECTION} \
     --beaconNodes=${BEACON_API_URL}$( [ -n "${BACKUP_BEACON_NODES}" ] && echo ",${BACKUP_BEACON_NODES}" ) \
-    --http.requestWireFormat=ssz \
-    --blindedLocal true \
+    $( [ -z "${BACKUP_BEACON_NODES}" ] && echo "--http.requestWireFormat=ssz --blindedLocal true" ) \
     --logLevel=${LOG_LEVEL} \
     --logFileLevel=debug \
     --logFileDailyRotate 5 \
