@@ -2,7 +2,7 @@
   "upstream": [
     {
       "repo": "ChainSafe/lodestar",
-      "version": "v1.27.1",
+      "version": "holesky-rescue-5cb590f",
       "arg": "UPSTREAM_VERSION"
     },
     {
