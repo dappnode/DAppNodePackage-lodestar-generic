@@ -1,0 +1,19 @@
+{
+  "name": "lodestar-ephemery.dnp.dappnode.eth",
+  "version": "0.1.0",
+  "links": {
+    "ui": "http://brain.web3signer-ephemery.dappnode",
+    "homepage": "https://lodestar.chainsafe.io/",
+    "docs": "https://chainsafe.github.io/lodestar/",
+    "readme": "https://github.com/ChainSafe/lodestar/blob/stable/README.md"
+  },
+  "globalEnvs": [
+    {
+      "envs": ["MEVBOOST_EPHEMERY"],
+      "services": ["validator", "beacon-chain"]
+    }
+  ],
+  "optionalDependencies": {
+    "ephemery-besu.dnp.dappnode.eth": ">=0.1.0",
+  }
+}
