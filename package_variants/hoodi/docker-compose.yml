@@ -1,0 +1,14 @@
+version: "3.5"
+services:
+  beacon-chain:
+    build:
+      args:
+        NETWORK: hoodi
+        P2P_PORT: 9712
+    ports:
+      - 9712:9712/tcp
+      - 9712:9712/udp
+  validator:
+    build:
+      args:
+        NETWORK: hoodi

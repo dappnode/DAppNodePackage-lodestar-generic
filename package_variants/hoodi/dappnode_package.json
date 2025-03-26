@@ -1,0 +1,16 @@
+{
+  "name": "lodestar-hoodi.dnp.dappnode.eth",
+  "version": "0.1.0",
+  "links": {
+    "ui": "http://brain.web3signer-hoodi.dappnode",
+    "homepage": "https://lodestar.chainsafe.io/",
+    "docs": "https://chainsafe.github.io/lodestar/",
+    "readme": "https://github.com/ChainSafe/lodestar/blob/stable/README.md"
+  },
+  "globalEnvs": [
+    {
+      "envs": ["MEVBOOST_HOODI"],
+      "services": ["validator", "beacon-chain"]
+    }
+  ]
+}
