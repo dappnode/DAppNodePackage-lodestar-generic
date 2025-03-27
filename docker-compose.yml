@@ -5,7 +5,7 @@ services:
       context: beacon-chain
       args:
         UPSTREAM_VERSION: v1.28.1
-        STAKER_SCRIPTS_VERSION: v0.1.1
+        STAKER_SCRIPTS_VERSION: 0.1.2
         DATA_DIR: /var/lib/data
     volumes:
       - beacon-data:/var/lib/data
@@ -22,7 +22,7 @@ services:
       context: validator
       args:
         UPSTREAM_VERSION: v1.28.1
-        STAKER_SCRIPTS_VERSION: v0.1.1
+        STAKER_SCRIPTS_VERSION: 0.1.2
         DATA_DIR: /var/lib/data
     volumes:
       - validator-data:/var/lib/data
