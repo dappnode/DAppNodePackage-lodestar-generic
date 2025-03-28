@@ -1,6 +1,6 @@
 #!/bin/sh
 
-SUPPORTED_NETWORKS="gnosis holesky mainnet"
+SUPPORTED_NETWORKS="gnosis holesky mainnet hoodi"
 MEVBOOST_FLAG_KEY="--builder"
 SKIP_MEVBOOST_URL="true"
 CLIENT="lodestar"
