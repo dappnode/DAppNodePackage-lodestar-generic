@@ -20,6 +20,7 @@ FLAGS="beacon \
     --jwt-secret=${JWT_FILE_PATH} \
     --execution.urls=${ENGINE_URL} \
     --dataDir=${DATA_DIR} \
+    --serveHistoricalState \
     --rest \
     --rest.address=0.0.0.0 \
     --rest.port=${BEACON_API_PORT} \
