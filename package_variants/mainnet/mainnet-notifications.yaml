@@ -2,7 +2,7 @@ endpoints:
   - name: "Mainnet Lodestar Node Syncing Check"
     enabled: true
     group: "ethereum"
-    url: "http://lodestar.dappnode:3500/eth/v1/node/syncing"
+    url: "http://beacon-chain.lodestar.dappnode:3500/eth/v1/node/syncing"
     method: "GET"
     headers:
       Content-Type: "application/json"
@@ -26,7 +26,7 @@ endpoints:
   - name: "Mainnet Lodestar Node Peers Count Check"
     enabled: true
     group: "ethereum"
-    url: "http://lodestar.dappnode:3500/eth/v1/node/peer_count"
+    url: "http://beacon-chain.lodestar.dappnode:3500/eth/v1/node/peer_count"
     method: "GET"
     headers:
       Content-Type: "application/json"

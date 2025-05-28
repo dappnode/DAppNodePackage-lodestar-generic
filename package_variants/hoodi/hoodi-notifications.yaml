@@ -2,7 +2,7 @@ endpoints:
   - name: "Hoodi Lodestar Node Syncing Check"
     enabled: true
     group: "hoodi"
-    url: "http://lodestar-hoodi.dappnode:3500/eth/v1/node/syncing"
+    url: "http://beacon-chain.lodestar-hoodi.dappnode:3500/eth/v1/node/syncing"
     method: "GET"
     headers:
       Content-Type: "application/json"
@@ -26,7 +26,7 @@ endpoints:
   - name: "Hoodi Lodestar Node Peers Count Check"
     enabled: true
     group: "hoodi"
-    url: "http://lodestar-hoodi.dappnode:3500/eth/v1/node/peer_count"
+    url: "http://beacon-chain.lodestar-hoodi.dappnode:3500/eth/v1/node/peer_count"
     method: "GET"
     headers:
       Content-Type: "application/json"
