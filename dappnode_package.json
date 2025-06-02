@@ -39,6 +39,6 @@
     "onRemove": "Make sure your StakersUI does not have this client selected! Double check in the Stakers Tab in the left NavBar"
   },
   "requirements": {
-    "minimumDappnodeVersion": "0.2.101"
+    "minimumDappnodeVersion": "0.2.106"
   }
 }
