@@ -1,6 +1,6 @@
 {
   "name": "lodestar-gnosis.dnp.dappnode.eth",
-  "version": "0.1.26",
+  "version": "0.1.27",
   "links": {
     "ui": "http://brain.web3signer-gnosis.dappnode",
     "homepage": "https://lodestar.chainsafe.io/",
