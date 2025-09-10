@@ -2,7 +2,7 @@
   "upstream": [
     {
       "repo": "ChainSafe/lodestar",
-      "version": "v1.33.0",
+      "version": "v1.34.0",
       "arg": "UPSTREAM_VERSION"
     },
     {
