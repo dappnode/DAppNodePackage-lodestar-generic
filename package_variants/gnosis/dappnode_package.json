@@ -7,5 +7,10 @@
     "homepage": "https://lodestar.chainsafe.io/",
     "docs": "https://chainsafe.github.io/lodestar/",
     "readme": "https://github.com/ChainSafe/lodestar/blob/stable/README.md"
+  },
+  "optionalDependencies": {
+    "gnosis-erigon.dnp.dappnode.eth": ">=1.0.2",
+    "nethermind-xdai.dnp.dappnode.eth": ">=1.0.69",
+    "web3signer-gnosis.dnp.dappnode.eth": ">=1.0.14"
   }
 }
