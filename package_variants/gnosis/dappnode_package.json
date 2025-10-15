@@ -1,8 +1,9 @@
 {
   "name": "lodestar-gnosis.dnp.dappnode.eth",
   "version": "0.1.31",
-  "minimumDappnodeVersion": "0.3.11",
-  "links": {
+  "requirements": {
+    "minimumDappnodeVersion": "0.3.11"
+  },  "links": {
     "ui": "http://brain.web3signer-gnosis.dappnode",
     "homepage": "https://lodestar.chainsafe.io/",
     "docs": "https://chainsafe.github.io/lodestar/",
