@@ -1,6 +1,6 @@
 {
   "name": "lodestar-gnosis.dnp.dappnode.eth",
-  "version": "0.1.35",
+  "version": "0.1.36",
   "requirements": {
     "minimumDappnodeVersion": "0.3.12"
   },
