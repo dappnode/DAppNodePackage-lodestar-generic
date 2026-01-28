@@ -17,7 +17,7 @@ fields:
     title: Checkpoint for fast sync
     description: >-
       To get Lodestar up and running in only a few minutes, you can start Lodestar from a recent finalized checkpoint state rather than syncing from genesis. This is substantially **faster** and consumes **less resources** than syncing from genesis, while still providing all the same features. Be sure you are using a trusted node for the fast sync.
-      Use the Dappnode Official endpoint for your network (`https://checkpoint-sync.dappnode.io`, `https://checkpoint-sync-holesky.dappnode.io`, `https://checkpoint-sync-hoodi.dappnode.io`, `https://checkpoint-sync-gnosis.dappnode.io`) or get your checkpoint sync from [Infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon-chain.infura.io)
+      Use the Dappnode Official endpoint for your network (`https://checkpoint-sync.dappnode.net`, `https://checkpoint-sync-hoodi.dappnode.net`, `https://checkpoint-sync-gnosis.dappnode.net`) or get your checkpoint sync from [Infura](https://infura.io/) (i.e https://XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX@eth2-beacon-chain.infura.io)
       *Note - If you are going to provide your own checkpoint sync endpoint, make sure you do not use a slash `/` at the end of the URL.*
     required: false
   - id: feeRecipientAddress
@@ -25,9 +25,9 @@ fields:
       type: environment
       name: FEE_RECIPIENT_ADDRESS
       service: [validator, beacon-chain]
-    title: Fee Recipient Address
+    title: Fee Recipient Address (only fallback)
     description: >-
-      Fee Recipient is a feature that lets you specify a priority fee recipient address on your validator client instance and beacon node. Make sure this is an address you control. After The Merge, Execution Clients will begin depositing priority fees into this address whenever your validator proposes a new block.
+      This fee recipient address would be only used in case of error of your primary fee recipient. Your primary fee recipient is defined when you import your keys in the staking brain. By default the fallback fee recipient address is `0x0000000000000000000000000000000000000000`.
     required: true
     pattern: "^0x[a-fA-F0-9]{40}$"
     patternErrorMessage: Must be a valid address (0x1fd16a...)
