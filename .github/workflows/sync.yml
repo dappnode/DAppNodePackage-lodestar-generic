@@ -7,7 +7,8 @@ on:
     inputs:
       execution_client:
         description: 'Execution Client'
-        required: true
+        required: false
+        default: 'geth'
         type: choice
         options: [geth, nethermind, besu, erigon, reth]
 
@@ -21,7 +22,7 @@ jobs:
             -v /var/run/docker.sock:/var/run/docker.sock \
             -e MODE=sync \
             -e CONSENSUS_CLIENT='lodestar' \
-            -e EXECUTION_CLIENT=${{ github.event.inputs.execution_client }} \
+            -e EXECUTION_CLIENT=${{ github.event.inputs.execution_client || 'geth' }} \
             -e NETWORK=hoodi \
             ghcr.io/dappnode/staker-test-util/test-runner:latest
   notify:
