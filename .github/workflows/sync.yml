@@ -1,0 +1,34 @@
+name: Consensus Client Sync Production
+
+on:
+  schedule:
+    - cron: '0 4 * * *'
+  workflow_dispatch:
+    inputs:
+      execution_client:
+        description: 'Execution Client'
+        required: true
+        type: choice
+        options: [geth, nethermind, besu, erigon, reth]
+
+jobs:
+  sync:
+    runs-on: staking-test-hoodi
+    steps:
+      - name: Run sync
+        run: |
+          docker run --rm --pull=always --network dncore_network \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -e MODE=sync \
+            -e CONSENSUS_CLIENT='lodestar' \
+            -e EXECUTION_CLIENT=${{ github.event.inputs.execution_client }} \
+            -e NETWORK=hoodi \
+            ghcr.io/dappnode/staker-test-util/test-runner:latest
+  notify:
+    needs: sync
+    if: always() && needs.sync.result != 'skipped'
+    uses: dappnode/staker-test-util/.github/workflows/notify-discord.yml@main
+    with:
+      result: ${{ needs.sync.result }}
+      test_type: "sync"
+    secrets: inherit
