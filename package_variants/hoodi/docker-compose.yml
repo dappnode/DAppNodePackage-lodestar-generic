@@ -5,9 +5,11 @@ services:
       args:
         NETWORK: hoodi
         P2P_PORT: 9712
+        QUIC_PORT: 9713
     ports:
       - 9712:9712/tcp
       - 9712:9712/udp
+      - 9713:9713/udp
   validator:
     build:
       args:

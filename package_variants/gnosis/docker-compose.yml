@@ -5,9 +5,11 @@ services:
       args:
         NETWORK: gnosis
         P2P_PORT: 19012
+        QUIC_PORT: 19013
     ports:
       - 19012:19012/tcp
       - 19012:19012/udp
+      - 19013:19013/udp
   validator:
     build:
       args:
