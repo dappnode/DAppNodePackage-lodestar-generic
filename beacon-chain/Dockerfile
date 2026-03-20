@@ -5,11 +5,15 @@ FROM chainsafe/lodestar:${UPSTREAM_VERSION}
 ARG NETWORK
 ARG STAKER_SCRIPTS_VERSION
 ARG DATA_DIR
+ARG P2P_PORT
+ARG QUIC_PORT
 
 ENV JWT_FILE_PATH=/jwtsecret.hex \
     BEACON_API_PORT=3500 \
     CLIENT_BIN=/usr/app/lodestar \
     DATA_DIR=${DATA_DIR} \
+    P2P_PORT=${P2P_PORT} \
+    QUIC_PORT=${QUIC_PORT} \
     STAKER_SCRIPTS_URL=https://github.com/dappnode/staker-package-scripts/releases/download/${STAKER_SCRIPTS_VERSION}
 
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
