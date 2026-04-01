@@ -7,9 +7,11 @@ services:
         P2P_PORT: 9112
         QUIC_PORT: 9113
     ports:
-      - 9112:9112/tcp
+      - 9112:9112
       - 9112:9112/udp
       - 9113:9113/udp
+    environment:
+      CHECKPOINT_SYNC_URL: "https://checkpoint-sync.dappnode.net"
   validator:
     build:
       args:
