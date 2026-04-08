@@ -14,8 +14,7 @@ services:
       - seccomp:unconfined
     environment:
       LOG_LEVEL: info
-      CHECKPOINT_SYNC_URL: ""
-      FEE_RECIPIENT_ADDRESS: ""
+      FEE_RECIPIENT_ADDRESS: "0x0000000000000000000000000000000000000000"
       EXTRA_OPTS: ""
   validator:
     build:
@@ -34,7 +33,7 @@ services:
       GRAFFITI: validating_from_DAppNode
       DOPPELGANGER_PROTECTION: "true"
       EXTRA_OPTS: ""
-      FEE_RECIPIENT_ADDRESS: ""
+      FEE_RECIPIENT_ADDRESS: "0x0000000000000000000000000000000000000000"
       BACKUP_BEACON_NODES: ""
 volumes:
   beacon-data: {}
