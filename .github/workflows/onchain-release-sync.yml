@@ -15,4 +15,5 @@ jobs:
     with:
       dry_run: true
       prerelease_only: false
+      rust_log: "debug"
     secrets: inherit
