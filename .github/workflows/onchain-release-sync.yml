@@ -13,5 +13,6 @@ jobs:
   onchain-release-sync:
     uses: dappnode/workflows/.github/workflows/onchain-release-sync.yml@master
     with:
-      dry_run: false
+      dry_run: true
+      prerelease_only: false
     secrets: inherit
