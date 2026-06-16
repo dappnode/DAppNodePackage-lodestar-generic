@@ -1,0 +1,16 @@
+[
+  {
+    "labels": {
+      "package": "lodestar-ephemery.dnp.dappnode.eth",
+      "service": "beacon-chain.lodestar-ephemery.dappnode"
+    },
+    "targets": ["beacon-chain.lodestar-ephemery.dappnode:8010"]
+  },
+  {
+    "labels": {
+      "package": "lodestar-ephemery.dnp.dappnode.eth",
+      "service": "validator.lodestar-ephemery.dappnode"
+    },
+    "targets": ["validator.lodestar-ephemery.dappnode:5068"]
+  }
+]
