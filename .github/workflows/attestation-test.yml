@@ -1,0 +1,29 @@
+name: Proof of Attestation
+
+on:
+  repository_dispatch:
+    types: [tropibot-attestation-test]
+  workflow_dispatch:
+    inputs:
+      execution_client:
+        description: "Execution Client"
+        required: true
+        type: choice
+        options: [geth, nethermind, besu, erigon, reth]
+  push:
+    branches:
+      - "main"
+    paths-ignore:
+      - "README.md"
+
+jobs:
+  attestation-test:
+    uses: dappnode/workflows/.github/workflows/staking-full-test.yml@master
+    with:
+      package_variant: "hoodi"
+      consensus_client: "lodestar"
+      execution_client: ${{ github.event.client_payload.execution_client || inputs.execution_client || '' }}
+      pr_number: ${{ github.event.client_payload.pr_number || '' }}
+      head_ref: ${{ github.event.client_payload.head_ref || github.ref }}
+      sender: ${{ github.event.client_payload.sender || github.actor }}
+    secrets: inherit
