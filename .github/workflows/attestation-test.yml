@@ -15,10 +15,9 @@ jobs:
   attestation-test:
     uses: dappnode/workflows/.github/workflows/staking-attestation-test.yml@master
     with:
-      package_variant: "hoodi"
-      consensus_client: ${{ github.event.client_payload.consensus_client || 'lodestar' }}
+      consensus_client: "lodestar"
       execution_client: ${{ github.event.client_payload.execution_client || inputs.execution_client || '' }}
-      pr_number: ${{ github.event.client_payload.pr_number || '' }}
-      head_ref: ${{ github.event.client_payload.head_ref || github.ref }}
-      sender: ${{ github.event.client_payload.sender || github.actor }}
+      pr_number: ${{ github.event.client_payload.pr_number || github.event.pull_request.number || '' }}
+      head_ref: ${{ github.event.client_payload.head_ref || github.event.pull_request.head.ref || github.ref_name }}
+      sender: ${{ github.event.client_payload.sender || github.event.pull_request.user.login || github.actor }}
     secrets: inherit
