@@ -36,7 +36,7 @@
     {
       "arg": "UPSTREAM_VERSION",
       "repo": "ChainSafe/lodestar",
-      "version": "v1.44.0"
+      "version": "v1.45.0"
     },
     {
       "arg": "STAKER_SCRIPTS_VERSION",

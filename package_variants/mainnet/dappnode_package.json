@@ -1,16 +1,21 @@
 {
-  "name": "lodestar.dnp.dappnode.eth",
-  "version": "0.1.44",
-  "links": {
-    "ui": "http://brain.web3signer.dappnode",
-    "homepage": "https://lodestar.chainsafe.io/",
-    "docs": "https://chainsafe.github.io/lodestar/",
-    "readme": "https://github.com/ChainSafe/lodestar/blob/stable/README.md"
-  },
   "globalEnvs": [
     {
-      "envs": ["MEVBOOST_MAINNET"],
-      "services": ["validator", "beacon-chain"]
+      "envs": [
+        "MEVBOOST_MAINNET"
+      ],
+      "services": [
+        "validator",
+        "beacon-chain"
+      ]
     }
-  ]
+  ],
+  "links": {
+    "docs": "https://chainsafe.github.io/lodestar/",
+    "homepage": "https://lodestar.chainsafe.io/",
+    "readme": "https://github.com/ChainSafe/lodestar/blob/stable/README.md",
+    "ui": "http://brain.web3signer.dappnode"
+  },
+  "name": "lodestar.dnp.dappnode.eth",
+  "version": "0.1.45"
 }

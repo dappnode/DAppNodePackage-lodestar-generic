@@ -1,18 +1,18 @@
 {
-  "name": "lodestar-gnosis.dnp.dappnode.eth",
-  "version": "0.1.42",
-  "requirements": {
-    "minimumDappnodeVersion": "0.3.12"
-  },
   "links": {
-    "ui": "http://brain.web3signer-gnosis.dappnode",
-    "homepage": "https://lodestar.chainsafe.io/",
     "docs": "https://chainsafe.github.io/lodestar/",
-    "readme": "https://github.com/ChainSafe/lodestar/blob/stable/README.md"
+    "homepage": "https://lodestar.chainsafe.io/",
+    "readme": "https://github.com/ChainSafe/lodestar/blob/stable/README.md",
+    "ui": "http://brain.web3signer-gnosis.dappnode"
   },
+  "name": "lodestar-gnosis.dnp.dappnode.eth",
   "optionalDependencies": {
     "gnosis-erigon.dnp.dappnode.eth": ">=1.0.2",
     "nethermind-xdai.dnp.dappnode.eth": ">=1.0.69",
     "web3signer-gnosis.dnp.dappnode.eth": ">=1.0.14"
-  }
+  },
+  "requirements": {
+    "minimumDappnodeVersion": "0.3.12"
+  },
+  "version": "0.1.43"
 }
