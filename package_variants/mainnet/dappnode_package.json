@@ -17,5 +17,5 @@
     "ui": "http://brain.web3signer.dappnode"
   },
   "name": "lodestar.dnp.dappnode.eth",
-  "version": "0.1.45"
+  "version": "0.1.46"
 }
