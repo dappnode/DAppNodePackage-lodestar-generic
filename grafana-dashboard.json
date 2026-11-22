@@ -140,7 +140,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "(time() - {__name__=~\"lodestar_genesis_time(_seconds)?\"}) / 12"
+              "options": "(time() - lodestar_genesis_time_seconds) / 12"
             },
             "properties": [
               {
@@ -285,7 +285,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "(time() - {__name__=~\"lodestar_genesis_time(_seconds)?\", package=\"lodestar.dnp.dappnode.eth\"}) / 12",
+          "expr": "(time() - lodestar_genesis_time_seconds{package=\"lodestar.dnp.dappnode.eth\"}) / 12",
           "hide": false,
           "instant": false,
           "interval": "",
@@ -500,7 +500,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "{__name__=~\"(lodestar_)?validator_monitor_validators\", package=\"lodestar.dnp.dappnode.eth\"}",
+          "expr": "lodestar_validator_monitor_validators{package=\"lodestar.dnp.dappnode.eth\"}",
           "interval": "",
           "legendFormat": "",
           "refId": "A"
@@ -1055,7 +1055,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum(rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_attester_miss_total\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n/\n(\n  sum(rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_attester_hit_total\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n  +\n  sum(rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_attester_miss_total\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n) > 0",
+          "expr": "sum(rate(lodestar_validator_monitor_prev_epoch_on_chain_attester_miss_total{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n/\n(\n  sum(rate(lodestar_validator_monitor_prev_epoch_on_chain_attester_hit_total{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n  +\n  sum(rate(lodestar_validator_monitor_prev_epoch_on_chain_attester_miss_total{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n) > 0",
           "interval": "",
           "legendFormat": "attester",
           "refId": "A"
@@ -1066,7 +1066,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum(rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_target_attester_miss_total\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n/\n(\n  sum(rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_target_attester_hit_total\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n  +\n  sum(rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_target_attester_miss_total\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n) > 0",
+          "expr": "sum(rate(lodestar_validator_monitor_prev_epoch_on_chain_target_attester_miss_total{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n/\n(\n  sum(rate(lodestar_validator_monitor_prev_epoch_on_chain_target_attester_hit_total{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n  +\n  sum(rate(lodestar_validator_monitor_prev_epoch_on_chain_target_attester_miss_total{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n) > 0",
           "hide": false,
           "interval": "",
           "legendFormat": "target",
@@ -1078,7 +1078,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "sum(rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_head_attester_miss_total\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n/\n(\n  sum(rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_head_attester_hit_total\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n  +\n  sum(rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_head_attester_miss_total\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n) > 0",
+          "expr": "sum(rate(lodestar_validator_monitor_prev_epoch_on_chain_head_attester_miss_total{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n/\n(\n  sum(rate(lodestar_validator_monitor_prev_epoch_on_chain_head_attester_hit_total{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n  +\n  sum(rate(lodestar_validator_monitor_prev_epoch_on_chain_head_attester_miss_total{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval]))\n) > 0",
           "hide": false,
           "interval": "",
           "legendFormat": "head",
@@ -1256,7 +1256,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "avg(\n  rate({__name__=~\"(lodestar_)?validator_monitor_prev_epoch_on_chain_balance\", package=\"lodestar.dnp.dappnode.eth\"}[32m])\n)",
+          "expr": "avg(\n  rate(lodestar_validator_monitor_prev_epoch_on_chain_balance{package=\"lodestar.dnp.dappnode.eth\"}[32m])\n)",
           "hide": false,
           "interval": "",
           "legendFormat": "balance_delta",
@@ -2530,7 +2530,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "(time() - {__name__=~\"lodestar_genesis_time(_seconds)?\", package=\"lodestar.dnp.dappnode.eth\"}) / 12 - beacon_clock_slot{package=\"lodestar.dnp.dappnode.eth\"}",
+          "expr": "(time() - lodestar_genesis_time_seconds{package=\"lodestar.dnp.dappnode.eth\"}) / 12 - beacon_clock_slot{package=\"lodestar.dnp.dappnode.eth\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "clock drift",
