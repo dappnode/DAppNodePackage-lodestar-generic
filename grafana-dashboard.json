@@ -1544,7 +1544,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "rate(lodestar_gossip_block_elapsed_time_till_processed_count{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval])\n- on(instance)\nrate(lodestar_gossip_block_elapsed_time_till_processed_bucket{le=\"4\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval])",
+          "expr": "rate(lodestar_gossip_block_elapsed_time_till_processed_seconds_count{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval])\n- on(instance)\nrate(lodestar_gossip_block_elapsed_time_till_processed_seconds_bucket{le=\"4\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval])",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
