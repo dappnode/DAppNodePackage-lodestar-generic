@@ -140,7 +140,7 @@
           {
             "matcher": {
               "id": "byName",
-              "options": "(time() - lodestar_genesis_time) / 12"
+              "options": "(time() - lodestar_genesis_time_seconds) / 12"
             },
             "properties": [
               {
@@ -285,7 +285,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "exemplar": false,
-          "expr": "(time() - lodestar_genesis_time{package=\"lodestar.dnp.dappnode.eth\"}) / 12",
+          "expr": "(time() - lodestar_genesis_time_seconds{package=\"lodestar.dnp.dappnode.eth\"}) / 12",
           "hide": false,
           "instant": false,
           "interval": "",
@@ -1544,7 +1544,7 @@
             "uid": "${DS_PROMETHEUS}"
           },
           "editorMode": "code",
-          "expr": "rate(lodestar_gossip_block_elapsed_time_till_processed_count{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval])\n- on(instance)\nrate(lodestar_gossip_block_elapsed_time_till_processed_bucket{le=\"4\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval])",
+          "expr": "rate(lodestar_gossip_block_elapsed_time_till_processed_seconds_count{package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval])\n- on(instance)\nrate(lodestar_gossip_block_elapsed_time_till_processed_seconds_bucket{le=\"4\", package=\"lodestar.dnp.dappnode.eth\"}[$rate_interval])",
           "legendFormat": "__auto",
           "range": true,
           "refId": "A"
@@ -2530,7 +2530,7 @@
             "type": "prometheus",
             "uid": "${DS_PROMETHEUS}"
           },
-          "expr": "(time() - lodestar_genesis_time{package=\"lodestar.dnp.dappnode.eth\"}) / 12 - beacon_clock_slot{package=\"lodestar.dnp.dappnode.eth\"}",
+          "expr": "(time() - lodestar_genesis_time_seconds{package=\"lodestar.dnp.dappnode.eth\"}) / 12 - beacon_clock_slot{package=\"lodestar.dnp.dappnode.eth\"}",
           "hide": false,
           "interval": "",
           "legendFormat": "clock drift",
